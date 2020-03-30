@@ -20,7 +20,7 @@ export default {
       const newTodo = {
         //id: uuid.v4(),
         title: this.title,
-        complete: false
+        completed: false
       };
       this.$emit("handleAdd", newTodo);
       this.title = "";
