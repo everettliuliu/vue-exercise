@@ -27,23 +27,25 @@ export default {
   methods:{
     handleDelete(id){
       //console.log(id);
-      axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
-      .then(res => {
+      //axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+      //.then(res => {
         this.todoList = this.todoList.filter(todoElement => todoElement.id !== id)
-      })
-      .catch(err => console.log(err))
+      //})
+      //.catch(err => console.log(err))
       // 过滤出id不等于传值id的对象
       
     },
     handleAdd(newTodo){
       //解构赋值
-      const {title,completed} = newTodo
-      axios.post("https://jsonplaceholder.typicode.com/todos",{
-        title,
-        completed
-      })
-      .then(res => this.todoList.unshift(res.data))
-      .catch(err => console.log(err))
+      //const {title,completed} = newTodo
+      //axios.post("https://jsonplaceholder.typicode.com/todos",{
+      //  title,
+      //  completed
+      //})
+      //.then(  res => 
+      this.todoList.unshift(newTodo)
+      //  )
+      //.catch(err => console.log(err))
     }
   },
   components:{
@@ -51,13 +53,13 @@ export default {
     addElement 
   },
   //生命周期钩子执行axios
-  created(){
-    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
-    .then(res => {
-      this.todoList = res.data
-    })
-    .catch(err => console.log(err))
-  }
+  // created(){
+  //   axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+  //   .then(res => {
+  //     this.todoList = res.data
+  //   })
+  //   .catch(err => console.log(err))
+  // }
 }
 </script>
 <style>
